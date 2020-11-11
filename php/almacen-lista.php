@@ -3,7 +3,7 @@
 require_once "__varios.php";
 
 $pdo = obtenerPdoConexionBD();
-$sql = "SELECT id,nombre,Lugar FROM almacen ORDER BY id";
+$sql = "SELECT id,nombre,lugar FROM almacen ORDER BY id";
 
 $select = $pdo->prepare($sql);
 $select->execute([]);
@@ -29,10 +29,10 @@ $rs = $select->fetchAll();
 
             <?php foreach ($rs as $fila) { ?>
                 <tr>
-                    <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>" <?= $fila["nombre"] ?>></a></td>
-                    <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>" <?= $fila["lugar"] ?>></a></td>
+                    <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["nombre"] ?></a></td>
+                    <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["lugar"] ?></a></td>
                     <td><a href="almacen-eliminar.php?id=<?= $fila["id"] ?>">
-                            <img src="/img/img_X.png" width="25px" height="25px"> </a></td>
+                            <img src="img/img_X.png" width="25px" height="25px"> </a></td>
                 </tr>
             <?php } ?>
         </table>
