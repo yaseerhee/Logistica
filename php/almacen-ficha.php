@@ -15,8 +15,8 @@ if ($nuevoAlmacen) {
     $select->execute([$id]);
     $rs = $select->fetchAll();
 
-    $almacenNombre = $rs[0]["nombre"];
-    $almacenNombre = $rs[0]["lugar"];
+    $nombre = $rs[0]["nombre"];
+    $lugar = $rs[0]["lugar"];
 }
 ?>
 <!DOCTYPE html>

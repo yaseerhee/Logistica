@@ -15,13 +15,14 @@ $rs = $select->fetchAll();
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="contenedor">
+<body class="p-5">
+    <div class="container h-100 text-center">
         <h1 id="listado">LISTADO DE ALMACENES</h1>
 
-        <table>
+        <table class="table table-hover table-dark">
             <tr>
                 <th>NOMBRE</th>
                 <th>LUGAR</th>
