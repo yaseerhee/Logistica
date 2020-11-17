@@ -40,8 +40,18 @@ $rs = $select->fetchAll();
         </table>
 
         <br />
-        <a href="almacen-ficha.php?id=-1">Introducir nuevo almacen</a>
-        <a href="productos-lista.php">Gestionar listado de productos</a>
+        <div class="row">
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="almacen-ficha.php?id=-1">Introducir nuevo almacen</a>
+                </button>
+            </div>
+            <div class="col-lg-4"></div>
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="productos-lista.php">Gestionar listado de almacenes</a>
+                </button>
+            </div>
+        </div>
     </div>
 </body>
 

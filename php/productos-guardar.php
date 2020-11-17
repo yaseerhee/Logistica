@@ -1,3 +1,14 @@
+<?php
+require_once "__varios.php";
+$pdo = obtenerPdoConexionBD();
+
+$id = (int)$_REQUEST["id"];
+$nombre = $_REQUEST["nombre"];
+$apellido = $_REQUEST["apellido"];
+$telefono = $_REQUEST["telefono"];
+$estrella = isset($_REQUEST["estrella"]);
+$categoria_id = $_REQUEST["categoria_id"];
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
