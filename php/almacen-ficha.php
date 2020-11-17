@@ -6,8 +6,8 @@ $id = (int)$_REQUEST["id"];
 $nuevoAlmacen = ($id == -1);
 
 if ($nuevoAlmacen) {
-    $almacenNombre = "";
-    $almacenLugar = "";
+    $nombre = "";
+    $lugar = "";
 } else {
     $sql = "SELECT nombre, lugar FROM almacen WHERE id=?";
 
@@ -40,12 +40,12 @@ if ($nuevoAlmacen) {
             <ul id="lista">
                 <li>
                     <label for="nombre">NOMBRE: </label>
-                    <input type="text" name="nombre" value="<?= $almacenNombre ?>">
+                    <input type="text" name="nombre" value="<?= $nombre ?>">
                 </li>
 
                 <li>
                     <label for="lugar">LUGAR: </label>
-                    <input type="text" name="lugar" value="<?= $almacenLugar ?>">
+                    <input type="text" name="lugar" value="<?= $lugar ?>">
                 </li>
             </ul>
             <?php if ($nuevoAlmacen) { ?>
@@ -55,8 +55,12 @@ if ($nuevoAlmacen) {
             <?php } ?>
         </form>
 
-        <a href="almacen-eliminar.php?id=<? $id ?>">Eliminar almacen de la lista</a>
-        <a href="almacen-lista.php">Lista del almacen</a>
+        <button type="submit" class="btn btn-outline-primary" >
+            <a href="almacen-eliminar.php?id=<? $id ?>">Eliminar almacen de la lista</a>
+        </button>
+        <button type="submit" class="btn btn-outline-primary">
+            <a href="almacen-lista.php">Lista del almacen</a>
+        </button>
 
     </div>
 </body>
