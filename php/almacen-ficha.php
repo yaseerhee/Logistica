@@ -21,7 +21,7 @@ if ($nuevoAlmacen) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="stylesheet" href="css/estilos.css">
 <head>
     <meta charset="UTF-8">
 </head>

@@ -14,6 +14,7 @@ $rs = $select->fetchAll();
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
