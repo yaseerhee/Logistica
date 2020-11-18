@@ -8,27 +8,23 @@ $nuevoProducto = ($id == -1);
 if ($nuevoProducto) {
     $productoCodigo = "";
     $productoNombre = "";
-    $almacenNombre = "";
-    $almacenLugar = "";
     $productoEstado = "";
     $producto_idc = "";
 
 } else {
-    $sqlProducto = "SELECT * FROM productos  WHERE id=? ";
+    $sqlProducto = "SELECT id,nombre,estado, almacen_id FROM productos  WHERE id=?";
 
     $selectProducto = $pdo->prepare($sqlProducto);
     $selectProducto->execute([$id]); 
     $rsProducto = $selectProducto->fetchAll();
 
-    // Con esto, accedemos a los datos de la primera (y esperemos que única) fila que haya venido.
-    $productoCodigo = $rsProducto[0]["codigo"];
-    $productoNombre = $rsProducto[0]["productoNombre"];
-    $almacenNombre = $rsProducto[0]["almacenNombre"];
-    $almacenLugar = $rsProducto[0]["almacenLugar"];
+    $productoCodigo = $rsProducto[0]["id"];
+    $productoNombre = $rsProducto[0]["nombre"];
     $productoEstado = $rsProducto[0]["estado"];
     $producto_idc = $rsProducto[0]["almacen_id"];
 }
-$sqlAlmacen = "SELECT * FROM almacen";
+
+$sqlAlmacen = "SELECT id, nombre FROM almacen";
 $selectAlmacen = $pdo->prepare($sqlAlmacen);
 $selectAlmacen->execute([]);
 $rsAlmacen = $selectAlmacen->fetchAll();
@@ -49,10 +45,9 @@ $rsAlmacen = $selectAlmacen->fetchAll();
             <h1>Ficha de Producto</h1>
         <?php } ?>
 
-        <form method="post" action="persona-guardar.php">
+        <form method="post" action="productos-guardar.php">
 
             <input type="hidden" name="id" value="<?= $id ?>" />
-
             <ul>
                 <li>
                     <label for="codigo">Codigo Producto: </label>
@@ -75,11 +70,12 @@ $rsAlmacen = $selectAlmacen->fetchAll();
                     <label for="almacen_id">Nombre Almacen: </label>
                     <select name="almacen_id">
                         <?php foreach ($rsAlmacen as $fila) { ?>
-                            <option value="<?= $fila["id"] ?>" <?php if ($fila["id"] == $producto_idc) {
-                                                                    echo "selected = 'true'";
-                                                                } ?>><?= $fila["almacenNombre"] ?></option>
-                        <?php
-                        } ?>
+                            <option value="<?= $fila["id"] ?>" 
+                                <?php if ($fila["id"] == $producto_idc) {
+                                          echo "selected = 'true'"; } ?>>
+                                <?= $fila["nombre"] ?>
+                                </option>
+                        <?php } ?>
                     </select>
                 </li>
             </ul>
@@ -94,9 +90,9 @@ $rsAlmacen = $selectAlmacen->fetchAll();
 
         <br />
 
-        <a href="productos-eliminar.php?id=<?= $id ?>">Eliminar Personas</a>
+        <a href="productos-eliminar.php?id=<?= $id ?>">Eliminar Producto</a>
 
-        <a href="productos-lista.php">Listado de Personas.</a>
+        <a href="productos-lista.php">Listado de Productos.</a>
     </div>
 </body>
 </html>

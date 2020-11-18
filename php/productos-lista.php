@@ -13,12 +13,12 @@ $sql = "
             FROM 
                productos AS p INNER JOIN almacen AS a
                ON p.almacen_id = a.id
-            ORDER BY p.nombre
+            ORDER BY p.id
     ";
 $pdo = obtenerPdoConexionBD();
 $select = $pdo->prepare($sql);
 $select->execute([]);
-$personas = $select->fetchAll();
+$productos = $select->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ $personas = $select->fetchAll();
                 <th>Estado</th>
             </tr>
 
-            <?php foreach ($personas as $filaUnica) { ?>
+            <?php foreach ($productos as $filaUnica) { ?>
                 <tr>
                 	<td>
                     	<a href="productos-ficha.php?id=<?= $filaUnica["p_id"] ?>"> <?= $filaUnica["p_id"] ?> </a>
@@ -81,10 +81,18 @@ $personas = $select->fetchAll();
 
         <br />
 
-        <a href="productos-ficha.php?id=-1">Añadir un producto</a>
-
-
-        <a href="almacen-lista.php">Listado de Productos</a>
+        <div class="row">
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="productos-ficha.php?id=-1">Añadir un producto</a>
+                </button>
+            </div>
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="almacen-lista.php">Listado de Almacenes</a>      
+                </button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

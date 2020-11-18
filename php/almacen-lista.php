@@ -46,9 +46,9 @@ $rs = $select->fetchAll();
                     <a href="almacen-ficha.php?id=-1">Introducir nuevo almacen</a>
                 </button>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
                 <button type="submit" class="btn btn-outline-primary">
-                    <a href="productos-lista.php">Gestionar listado de almacenes</a>
+                    <a href="productos-lista.php">Gestionar listado de productos</a>
                 </button>
             </div>
         </div>

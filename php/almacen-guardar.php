@@ -13,7 +13,7 @@
 	    $sql = "INSERT INTO almacen (nombre,lugar) VALUES (?,?)";
 	    $parametros = [$nombre,$lugar];
 	} else {
-	    $sql = "UPDATE almacen SET nombre=? lugar=? WHERE id=?";
+	    $sql = "UPDATE almacen SET nombre=?, lugar=? WHERE id=?";
 	    $parametros = [$nombre, $lugar, $id];
 	}
 
