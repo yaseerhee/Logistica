@@ -41,24 +41,25 @@
         <?php     if ($correcto || $datos_no_modificados) { ?>
 
             <?php if ($id == -1) { ?>
-                <h1>Inserción completada</h1>
-                <p>Se ha insertado correctamente:  <?php echo $nombre; ?>.</p>
+                <h1 class="1.75rem text-center text-primary">Inserción completada</h1>
+                <p class="1.25rem text-center text-dark">Se ha insertado correctamente:  <?php echo $nombre; ?>.</p>
             <?php } else { ?>
-                <h1>Guardado completado</h1>
-                <p>Se han guardado correctamente los datos de <?php echo $nombre; ?>.</p>
+                <h1 class="1.75rem text-center text-primary">Guardado completado</h1>
+                <p class="1.25rem text-center text-dark">Se han guardado correctamente los datos de <?php echo $nombre; ?>.</p>
 
                 <?php if ($datos_no_modificados) { ?>
-                    <p>En realidad, no había modificado nada, pero no está de más que se haya asegurado pulsando el botón de
+                    <p class="1.25rem text-center text-dark">En realidad, no había modificado nada, pero no está de más que se haya asegurado pulsando el botón de
                         guardar</p>
                 <?php } ?>
             <?php } ?>
 
         <?php } else { ?>
-            <h1>Error en la modificación.</h1>
-            <p>No se han podido guardar los datos del almacen.</p>
+            <h1 class="1.75rem text-center text-primary">Error en la modificación.</h1>
+            <p class="1.25rem text-center text-dark">No se han podido guardar los datos del almacen.</p>
         <?php  }  ?>
-
-        <a href="almacen-lista.php">Volver al listado de almacenes.</a>
+        <button type="submit" class="btn btn-outline-primary">
+        	<a href="almacen-lista.php">Volver al listado de almacenes.</a>
+   		</button>
     </div>
 </body>
 </html>

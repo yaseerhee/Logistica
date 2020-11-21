@@ -31,7 +31,7 @@ $productos = $select->fetchAll();
 <body class="p-5">
 
 	<div class="container h-100 text-center">
-        <h1>Listado de Productos</h1>
+        <h1 class="1.75rem text-center text-primary">Listado de Productos</h1>
         <table class="table table-hover table-dark">
             <tr>
             	<th>Codigo Producto</th>
@@ -94,8 +94,11 @@ $productos = $select->fetchAll();
             </div>
         </div>
         <br />
-                <h5><img src="img/tic.jpg"> -->  Bien abastecido<h5>
-                <h5><img src="img/exclamacion.png"> -->  Escasez de producto<h5>
+
+            <div class="container">
+                <h5><img src="img/tic.jpg"> -->  Bien abastecido</h5>
+                <h5><img src="img/exclamacion.png"> -->  Escasez de producto</h5>
+            </div>
     </div>
 </body>
 </html>

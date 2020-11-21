@@ -27,22 +27,23 @@
 	<div class="container h-100 text-center">
         <?php if ($correcto) { ?>
 
-            <h1>Eliminación completada</h1>
-            <p>Se ha eliminado correctamente la categoría.</p>
+            <h1 class="1.75rem text-center text-dark">Eliminación completada</h1>
+            <p class="1.25rem text-center text-dark">Se ha eliminado correctamente el almacen.</p>
 
         <?php } else if ($no_existia) { ?>
 
-            <h1>Eliminación imposible</h1>
-            <p>No existe la categoría que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
+            <h1 class="1.75rem text-center text-dark">Eliminación imposible</h1>
+            <p class="1.25rem text-center text-dark">No existe el almacen que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
 
         <?php } else { ?>
 
-            <h1>Error en la eliminación</h1>
-            <p>No se ha podido eliminar la categoría o la categoría no existía.</p>
+            <h1 class="1.75rem text-center text-dark">Error en la eliminación</h1>
+            <p class="1.25rem text-center text-dark">No se ha podido eliminar el almacen o el almacen no existía.</p>
 
         <?php } ?>
-
-        <a href="almacen-lista.php">Volver al listado de categorías.</a>
+        <button type="submit" class="btn btn-outline-primary">
+        	<a href="almacen-lista.php">Volver al listado de almacenes.</a>
+        </button>
     </div>
 </body>
 

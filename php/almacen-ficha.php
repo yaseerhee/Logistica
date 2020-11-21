@@ -33,20 +33,18 @@ if ($nuevoAlmacen) {
 <body class="p-5">
    <div class="container h-100 text-center">
         <?php if ($nuevoAlmacen) { ?>
-            <h1 class="text-center">Nueva ficha del almacen</h1>
+            <h1 class="1.75rem text-center text-primary">Nueva ficha del almacen</h1>
         <?php } else { ?>
-            <h1 class="text-center">Ficha del almacen</h1>
+            <h1 class="1.75rem text-center text-primary">Ficha del almacen</h1>
         <?php } ?>
         <div class="abs-center">
             <form class="border p-3 form" action="almacen-guardar.php" method="post">
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <div class="form-group">
-                    <label for="nombre">NOMBRE: </label>
-                    <input type="text" name="nombre" value="<?= $nombre ?>">   
+                    <input class="form-control" type="text" name="nombre" value="<?= $nombre ?>" placeholder="NOMBRE ALMACEN">   
                 </div>
                 <div class="form-group">   
-                    <label for="lugar">LUGAR: </label>
-                    <input type="text" name="lugar" value="<?= $lugar ?>">
+                    <input class="form-control" type="text" name="lugar" value="<?= $lugar ?>" placeholder="LUGAR ALMACEN">
                 </div>
                 <div class="row justify-content-center h-100">
                     <div class="col-lg-4">

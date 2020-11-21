@@ -47,14 +47,14 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
         if ($correcto || $datos_no_modificados) { ?>
 
             <?php if ($id == -1) { ?>
-                <h1>Inserción completada</h1>
-                <p>Se ha insertado correctamente la nueva entrada de <?php echo $productoNombre; ?>.</p>
+                <h1 class="1.75rem text-center text-primary">Inserción completada</h1>
+                <p class="1.25rem text-center text-dark">Se ha insertado correctamente la nueva entrada de <?php echo $productoNombre; ?>.</p>
             <?php } else { ?>
-                <h1>Guardado completado</h1>
-                <p>Se han guardado correctamente los datos de <?php echo $productoNombre; ?>.</p>
+                <h1 class="1.75rem text-center text-primary">Guardado completado</h1>
+                <p class="1.25rem text-center text-dark">Se han guardado correctamente los datos de <?php echo $productoNombre; ?>.</p>
 
                 <?php if ($datos_no_modificados) { ?>
-                    <p>En realidad, no había modificado nada, pero no está de más que se haya asegurado pulsando el botón de
+                    <p class="1.25rem text-center text-dark">En realidad, no había modificado nada, pero no está de más que se haya asegurado pulsando el botón de
                         guardar :)</p>
                 <?php } ?>
             <?php }
@@ -64,14 +64,15 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
         } else {
         ?>
 
-            <h1>Error en la modificación.</h1>
-            <p>No se han podido guardar los datos de los productos.</p>
+            <h1 class="1.75rem text-center text-primary">Error en la modificación.</h1>
+            <p class="1.25rem text-center text-dark">No se han podido guardar los datos de los productos.</p>
 
         <?php
         }
         ?>
-
-        <a href="productos-lista.php">Volver al listado de productos.</a>
+        <button type="submit" class="btn btn-outline-primary">
+            <a href="productos-lista.php">Volver al listado de productos.</a>
+        </button>
     </div>
 </body>
 

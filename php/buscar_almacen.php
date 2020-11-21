@@ -1,9 +1,14 @@
 <?php
 
 require_once "__varios.php";
+$busqueda = strtolower($_REQUEST['busqueda']);
+
+if(empty($busqueda)){
+        header("location: almacen-lista.php");
+    }
 
 $pdo = obtenerPdoConexionBD();
-$sql = "SELECT id,nombre,lugar FROM almacen ORDER BY id";
+$sql = "SELECT id,nombre,lugar FROM almacen WHERE nombre LIKE '%" . $busqueda . "%' ORDER BY id";
 
 $select = $pdo->prepare($sql);
 $select->execute([]);
@@ -25,7 +30,7 @@ $rs = $select->fetchAll();
         <p></p>
         <form class="form-inline" action="buscar_almacen.php" method="get">
             <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search">
+            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search" value="<?= $busqueda;?>">
             <input type="submit"  value="Buscar" class="btn btn-info">  
         </form>
         <p></p>
@@ -36,7 +41,7 @@ $rs = $select->fetchAll();
                 <th>ELIMINAR</th>
             </tr>
 
-            <?php foreach ($rs as $fila) { ?>
+        <?php foreach ($rs as $fila) { ?>
                 <tr>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["nombre"] ?></a></td>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["lugar"] ?></a></td>

@@ -26,22 +26,23 @@
 	<div class="container h-100 text-center">
         <?php if ($correcto) { ?>
 
-            <h1>Eliminación completada</h1>
-            <p>Se ha eliminado correctamente el producto.</p>
+            <h1 class="1.75rem text-center text-primary">Eliminación completada</h1>
+            <p class="1.25rem text-center text-dark">Se ha eliminado correctamente el producto.</p>
 
         <?php } else if ($no_existia) { ?>
 
-            <h1>Eliminación imposible</h1>
-            <p>No existe la persona que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
+            <h1 class="1.75rem text-center text-primary">Eliminación imposible</h1>
+            <p class="1.25rem text-center text-dark">No existe el producto que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
 
         <?php } else { ?>
 
-            <h1>Error en la eliminación</h1>
-            <p>No se ha podido eliminar el producto o el producto no existía.</p>
+            <h1 class="1.75rem text-center text-primary">Error en la eliminación</h1>
+            <p class="1.25rem text-center text-dark">No se ha podido eliminar el producto o el producto no existía.</p>
 
         <?php } ?>
-
-        <a href="productos-lista.php">Volver al listado de productos.</a>
+        <button type="submit" class="btn btn-outline-primary">
+        	<a href="productos-lista.php">Volver al listado de productos.</a>
+    	</button>
     </div>
 </body>
 </html>
