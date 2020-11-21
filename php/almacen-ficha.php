@@ -31,43 +31,39 @@ if ($nuevoAlmacen) {
 </head>
 
 <body class="p-5">
-    <div class="container">
+   <div class="container h-100 text-center">
         <?php if ($nuevoAlmacen) { ?>
             <h1 class="text-center">Nueva ficha del almacen</h1>
         <?php } else { ?>
             <h1 class="text-center">Ficha del almacen</h1>
         <?php } ?>
-
-        <form class="form-horizontal" action="almacen-guardar.php" method="post">
-            <input type="hidden" name="id" value="<?= $id ?>">
-            <div class="form-group">
-                <label class="col-lg-4 control-label" for="nombre">NOMBRE: </label>
-                <div class="col-lg-4">
-                    <input type="text" name="nombre" value="<?= $nombre ?>">
-                </div>    
-            </div>
-            <div class="form-group align-items-center">   
-                <label class="col-lg-4 control-label" for="lugar">LUGAR: </label>
-                <div class="col-lg-4">
+        <div class="abs-center">
+            <form class="border p-3 form" action="almacen-guardar.php" method="post">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <div class="form-group">
+                    <label for="nombre">NOMBRE: </label>
+                    <input type="text" name="nombre" value="<?= $nombre ?>">   
+                </div>
+                <div class="form-group">   
+                    <label for="lugar">LUGAR: </label>
                     <input type="text" name="lugar" value="<?= $lugar ?>">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <?php if ($nuevoAlmacen) { ?>
-                        <input class="btn btn-outline-primary" type="submit" name="anhadir" value="Añadir nuevo almacen">
-                    <?php } else { ?>
-                        <input class="btn btn-outline-primary" type="submit" name="guardar" value="Guardar cambios">
-                    <?php } ?>
+                <div class="row justify-content-center h-100">
+                    <div class="col-lg-4">
+                        <?php if ($nuevoAlmacen) { ?>
+                            <input class="btn btn-outline-primary" type="submit" name="anhadir" value="Añadir nuevo almacen">
+                        <?php } else { ?>
+                            <input class="btn btn-outline-primary" type="submit" name="guardar" value="Guardar cambios">
+                        <?php } ?>
+                    </div>
+                     <div class="col-lg-4">
+                        <button type="submit" class="btn btn-outline-primary">
+                            <a href="almacen-lista.php">Lista del almacen</a>
+                        </button>
+                    </div>
                 </div>
-                 <div class="col-lg-4">
-                    <button type="submit" class="btn btn-outline-primary">
-                        <a href="almacen-lista.php">Lista del almacen</a>
-                    </button>
-                </div>
-            </div>
-        </form>
-
+            </form>
+        </div>
     </div>
 </body>
 

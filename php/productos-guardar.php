@@ -42,7 +42,7 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
 
 
 <body>
-    <div class="cuerpo">
+    <div class="container h-100 text-center">
         <?php
         if ($correcto || $datos_no_modificados) { ?>
 

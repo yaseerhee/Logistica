@@ -37,12 +37,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body class="p-5">
-	<div class="container text-center">
+	<div class="container h-100 text-center">
         <?php     if ($correcto || $datos_no_modificados) { ?>
 
             <?php if ($id == -1) { ?>
                 <h1>Inserción completada</h1>
-                <p>Se ha insertado correctamente la nueva entrada de <?php echo $nombre; ?>.</p>
+                <p>Se ha insertado correctamente:  <?php echo $nombre; ?>.</p>
             <?php } else { ?>
                 <h1>Guardado completado</h1>
                 <p>Se han guardado correctamente los datos de <?php echo $nombre; ?>.</p>
@@ -55,10 +55,10 @@
 
         <?php } else { ?>
             <h1>Error en la modificación.</h1>
-            <p>No se han podido guardar los datos de la categoría.</p>
+            <p>No se han podido guardar los datos del almacen.</p>
         <?php  }  ?>
 
-        <a href="almacen-lista.php">Volver al listado de categorías.</a>
+        <a href="almacen-lista.php">Volver al listado de almacenes.</a>
     </div>
 </body>
 </html>

@@ -40,7 +40,7 @@ $rs = $select->fetchAll();
         </table>
 
         <br />
-        <div class="row">
+        <div class="row justify-content-center h-100">
             <div class="col-lg-4">
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="almacen-ficha.php?id=-1">Introducir nuevo almacen</a>
@@ -51,6 +51,7 @@ $rs = $select->fetchAll();
                     <a href="productos-lista.php">Gestionar listado de productos</a>
                 </button>
             </div>
+            
         </div>
     </div>
 </body>

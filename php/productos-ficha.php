@@ -38,48 +38,46 @@ $rsAlmacen = $selectAlmacen->fetchAll();
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body class="p-5">
-<div class="container">
+<div class="container h-100 text-center">
         <?php if ($nuevoProducto) { ?>
             <h1>Nueva ficha de Producto</h1>
         <?php } else { ?>
             <h1>Ficha de Producto</h1>
         <?php } ?>
 
-        <form method="post" action="productos-guardar.php">
+        <form class="border p-3 form"  method="post" action="productos-guardar.php">
 
             <input type="hidden" name="id" value="<?= $id ?>" />
-            <ul>
-                <li>
-                    <label for="codigo">Codigo Producto: </label>
-                    <input type="text" name="codigo" <?php if ($nuevoProducto) {
-                                                            echo 'placeholder = "codigo"';
+            <div class="form-group">
+                <label for="codigo">Codigo Producto: </label>
+                <input type="number" name="codigo" <?php if ($nuevoProducto) {
+                                                            echo 'placeholder = "numero"';
                                                         } ?> value="<?= $productoCodigo ?>" />
-                </li>
-                <li>
-                    <label for="productoNombre">Nombre Producto: </label>
-                    <input type="text" name="productoNombre" <?php if ($nuevoProducto) {
+            </div>
+             <div class="form-group">
+                <label for="productoNombre">Nombre Producto: </label>
+                <input type="text" name="productoNombre" <?php if ($nuevoProducto) {
                                                             echo 'placeholder = "Nombre Producto"';
                                                         } ?> value="<?= $productoNombre ?>" />
-                </li>
-                <li>
-                    <label for="estado">Estado </label>
-                    <input type="hidden" name="estado" value="0">
-                    <input type="checkbox" name="estado" value="1" <?php $productoEstado ? 'checked': ' ' ?> />
-                </li>
-                <li>
-                    <label for="almacen_id">Nombre Almacen: </label>
-                    <select name="almacen_id">
-                        <?php foreach ($rsAlmacen as $fila) { ?>
-                            <option value="<?= $fila["id"] ?>" 
-                                <?php if ($fila["id"] == $producto_idc) {
-                                          echo "selected = 'true'"; } ?>>
-                                <?= $fila["nombre"] ?>
-                                </option>
+            </div>
+             <div class="form-group">
+                <label for="estado">Estado </label>
+                <input type="hidden" name="estado" value="0">
+                <input type="checkbox" name="estado" value="1" <?php $productoEstado ? 'checked': ' ' ?> />
+            </div>
+            <div class="form-group">
+                <label for="almacen_id">Nombre Almacen: </label>
+                <select name="almacen_id">
+                    <?php foreach ($rsAlmacen as $fila) { ?>
+                        <option value="<?= $fila["id"] ?>" 
+                            <?php if ($fila["id"] == $producto_idc) {
+                                      echo "selected = 'true'"; } ?>>
+                            <?= $fila["nombre"] ?>
+                        </option>
                         <?php } ?>
-                    </select>
-                </li>
-            </ul>
-
+                </select>
+            </div>
+            
             <?php if ($nuevoProducto) { ?>
                 <input type="submit" id="boton" name="crear" value="Añadir persona" />
             <?php } else { ?>

@@ -81,7 +81,7 @@ $productos = $select->fetchAll();
 
         <br />
 
-        <div class="row">
+        <div class="row justify-content-center h-100">
             <div class="col-lg-4">
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="productos-ficha.php?id=-1">Añadir un producto</a>
@@ -93,6 +93,9 @@ $productos = $select->fetchAll();
                 </button>
             </div>
         </div>
+        <br />
+                <h5><img src="img/tic.jpg"> -->  Bien abastecido<h5>
+                <h5><img src="img/exclamacion.png"> -->  Escasez de producto<h5>
     </div>
 </body>
 </html>
