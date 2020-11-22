@@ -31,7 +31,7 @@ if ($nuevoAlmacen) {
 </head>
 
 <body class="p-5">
-   <div class="container h-100 text-center">
+    <div class="container h-100 text-center">
         <?php if ($nuevoAlmacen) { ?>
             <h1 class="1.75rem text-center text-primary">NUEVA FICHA DEL ALMACEN</h1>
         <?php } else { ?>
@@ -41,9 +41,9 @@ if ($nuevoAlmacen) {
             <form class="border p-3 form" action="almacen-guardar.php" method="post">
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="nombre" value="<?= $nombre ?>" placeholder="NOMBRE ALMACEN">   
+                    <input class="form-control" type="text" name="nombre" value="<?= $nombre ?>" placeholder="NOMBRE ALMACEN">
                 </div>
-                <div class="form-group">   
+                <div class="form-group">
                     <input class="form-control" type="text" name="lugar" value="<?= $lugar ?>" placeholder="LUGAR ALMACEN">
                 </div>
                 <div class="row justify-content-center h-100">
@@ -54,7 +54,7 @@ if ($nuevoAlmacen) {
                             <input class="btn btn-outline-primary" type="submit" name="guardar" value="Guardar cambios">
                         <?php } ?>
                     </div>
-                     <div class="col-lg-4">
+                    <div class="col-lg-4">
                         <button type="submit" class="btn btn-outline-primary">
                             <a href="almacen-lista.php">Lista del almacen</a>
                         </button>

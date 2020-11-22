@@ -96,6 +96,11 @@ $productos = $select->fetchAll();
                     <a href="almacen-lista.php">Listado de Almacenes</a>      
                 </button>
             </div>
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="logout.php">Cerrar Sesión</a>
+                </button>
+            </div>
         </div>
         <br />
     </div>

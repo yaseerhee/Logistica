@@ -1,5 +1,4 @@
 <?php
-
 require_once "__varios.php";
 $sql = "
            SELECT
@@ -104,6 +103,11 @@ $productos = $select->fetchAll();
             <div class="col-lg-4">
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="productos-escasos.php">Productos escasos</a>      
+                </button>
+            </div>
+            <div class="p-5 Scol-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="logout.php">Cerrar Sesión</a>
                 </button>
             </div>
         </div>

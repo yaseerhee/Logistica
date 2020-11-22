@@ -2,7 +2,6 @@
 
 require_once "__varios.php";
 $busqueda = strtolower($_REQUEST['busqueda']);
-
 if(empty($busqueda)){
         header("location: productos-lista.php");
     }
@@ -114,6 +113,11 @@ $productos = $select->fetchAll();
                 </button>
             </div>
         </div>
+        <div class="col-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="logout.php">Cerrar Sesión</a>
+                </button>
+            </div>
         <br />
 
             <div class="container">

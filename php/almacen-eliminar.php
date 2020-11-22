@@ -1,6 +1,6 @@
 <?php
 	require_once "__varios.php";
-
+	
 	$pdo = obtenerPdoConexionBD();
 	$id = (int) $_REQUEST["id"]; 
 	$sql = "DELETE FROM almacen WHERE id=?";

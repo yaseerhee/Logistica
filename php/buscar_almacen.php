@@ -1,6 +1,7 @@
 <?php
 
 require_once "__varios.php";
+
 $busqueda = strtolower($_REQUEST['busqueda']);
 
 if(empty($busqueda)){
@@ -63,7 +64,11 @@ $rs = $select->fetchAll();
                     <a href="productos-lista.php">Gestionar listado de productos</a>
                 </button>
             </div>
-            
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-outline-primary">
+                    <a href="logout.php">Cerrar Sesión</a>
+                </button>
+            </div>
         </div>
     </div>
 </body>
