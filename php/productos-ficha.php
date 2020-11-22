@@ -40,9 +40,9 @@ $rsAlmacen = $selectAlmacen->fetchAll();
 <body class="p-5">
 <div class="container h-100 text-center">
         <?php if ($nuevoProducto) { ?>
-            <h1 class="1.75rem text-center text-primary" >Nueva ficha de Producto</h1>
+            <h1 class="1.75rem text-center text-primary" >NUEVA FICHA DEL PRODUCTO</h1>
         <?php } else { ?>
-            <h1 class="1.75rem text-center text-primary" >Ficha de Producto</h1>
+            <h1 class="1.75rem text-center text-primary" >FICHA DEL PRODUCTO</h1>
         <?php } ?>
 
         <form class="border p-3 form"  method="post" action="productos-guardar.php">

@@ -1,6 +1,8 @@
 <?php
 
 require_once "__varios.php";
+
+$pdo = obtenerPdoConexionBD();
 $sql = "
            SELECT
                 p.id     AS p_id,
@@ -13,9 +15,11 @@ $sql = "
             FROM 
                productos AS p INNER JOIN almacen AS a
                ON p.almacen_id = a.id
+            WHERE 
+                p.estado = 0 
             ORDER BY p.id
     ";
-$pdo = obtenerPdoConexionBD();
+
 $select = $pdo->prepare($sql);
 $select->execute([]);
 $productos = $select->fetchAll();
@@ -31,16 +35,7 @@ $productos = $select->fetchAll();
 <body class="p-5">
 
 	<div class="container h-100 text-center">
-        <h1 class="1.75rem text-center text-primary">LISTADO DE PRODUCTOS</h1>
-       
-        <p></p>
-        <form class="form-inline" action="busqueda_productos.php" method="get">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search">
-            <input type="submit"  value="Buscar" class="btn btn-info">  
-        </form>
-        <p></p>
-
+        <h1 class="1.75rem text-center text-primary">PRODUCTOS QUE ESTÁN ESCASEANDO</h1>
         <table class="table table-hover table-dark">
             <tr>
             	<th>Codigo Producto</th>
@@ -101,18 +96,8 @@ $productos = $select->fetchAll();
                     <a href="almacen-lista.php">Listado de Almacenes</a>      
                 </button>
             </div>
-            <div class="col-lg-4">
-                <button type="submit" class="btn btn-outline-primary">
-                    <a href="productos-escasos.php">Productos escasos</a>      
-                </button>
-            </div>
         </div>
         <br />
-
-            <div class="container">
-                <h5><img src="img/tic.png"> -->  BIEN ABASTECIDO</h5>
-                <h5><img src="img/exclamacion.png"> -->  ESCASEZ DE PRODUCTO</h5>
-            </div>
     </div>
 </body>
 </html>

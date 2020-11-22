@@ -8,7 +8,7 @@ if(empty($busqueda)){
     }
 
 $pdo = obtenerPdoConexionBD();
-$sql = "SELECT id,nombre,lugar FROM almacen WHERE nombre LIKE '%" . $busqueda . "%' ORDER BY id";
+$sql = "SELECT id,nombre,lugar FROM almacen WHERE nombre LIKE '%" . $busqueda . "%' || lugar LIKE '%" . $busqueda . "%' ORDER BY id";
 
 $select = $pdo->prepare($sql);
 $select->execute([]);
@@ -46,7 +46,7 @@ $rs = $select->fetchAll();
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["nombre"] ?></a></td>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["lugar"] ?></a></td>
                     <td><a href="almacen-eliminar.php?id=<?= $fila["id"] ?>">
-                            <img src="img/img_X.png" width="25px" height="25px"> </a></td>
+                            <img src="img/equis.png" width="25px" height="25px"> </a></td>
                 </tr>
             <?php } ?>
         </table>

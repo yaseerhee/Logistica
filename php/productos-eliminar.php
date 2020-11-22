@@ -26,17 +26,17 @@
 	<div class="container h-100 text-center">
         <?php if ($correcto) { ?>
 
-            <h1 class="1.75rem text-center text-primary">Eliminación completada</h1>
+            <h1 class="1.75rem text-center text-primary">PRODUCTO ELIMINADO</h1>
             <p class="1.25rem text-center text-dark">Se ha eliminado correctamente el producto.</p>
 
         <?php } else if ($no_existia) { ?>
 
-            <h1 class="1.75rem text-center text-primary">Eliminación imposible</h1>
+            <h1 class="1.75rem text-center text-primary">IMPOSIBLE ELIMINAR</h1>
             <p class="1.25rem text-center text-dark">No existe el producto que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
 
         <?php } else { ?>
 
-            <h1 class="1.75rem text-center text-primary">Error en la eliminación</h1>
+            <h1 class="1.75rem text-center text-primary">ERROR AL ELIMINAR</h1>
             <p class="1.25rem text-center text-dark">No se ha podido eliminar el producto o el producto no existía.</p>
 
         <?php } ?>

@@ -25,7 +25,7 @@ $rs = $select->fetchAll();
         <p></p>
         <form class="form-inline" action="buscar_almacen.php" method="get">
             <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search">
+            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar Almacen" aria-label="search">
             <input type="submit"  value="Buscar" class="btn btn-info">  
         </form>
         <p></p>
@@ -41,7 +41,7 @@ $rs = $select->fetchAll();
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["nombre"] ?></a></td>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["lugar"] ?></a></td>
                     <td><a href="almacen-eliminar.php?id=<?= $fila["id"] ?>">
-                            <img src="img/img_X.png" width="25px" height="25px"> </a></td>
+                            <img src="img/equis.png" width="25px" height="25px"> </a></td>
                 </tr>
             <?php } ?>
         </table>

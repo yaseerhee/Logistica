@@ -47,10 +47,10 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
         if ($correcto || $datos_no_modificados) { ?>
 
             <?php if ($id == -1) { ?>
-                <h1 class="1.75rem text-center text-primary">Inserción completada</h1>
+                <h1 class="1.75rem text-center text-primary">PRODUCTO AÑADIDO</h1>
                 <p class="1.25rem text-center text-dark">Se ha insertado correctamente la nueva entrada de <?php echo $productoNombre; ?>.</p>
             <?php } else { ?>
-                <h1 class="1.75rem text-center text-primary">Guardado completado</h1>
+                <h1 class="1.75rem text-center text-primary">MODIFICACIÓN EXITOSA</h1>
                 <p class="1.25rem text-center text-dark">Se han guardado correctamente los datos de <?php echo $productoNombre; ?>.</p>
 
                 <?php if ($datos_no_modificados) { ?>
@@ -64,7 +64,7 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
         } else {
         ?>
 
-            <h1 class="1.75rem text-center text-primary">Error en la modificación.</h1>
+            <h1 class="1.75rem text-center text-primary">ERROR AL MODIFICAR.</h1>
             <p class="1.25rem text-center text-dark">No se han podido guardar los datos de los productos.</p>
 
         <?php

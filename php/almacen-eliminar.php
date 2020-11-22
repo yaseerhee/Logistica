@@ -27,17 +27,17 @@
 	<div class="container h-100 text-center">
         <?php if ($correcto) { ?>
 
-            <h1 class="1.75rem text-center text-dark">Eliminación completada</h1>
+            <h1 class="1.75rem text-center text-primary">ELIMINACIÓN COMPLETADA</h1>
             <p class="1.25rem text-center text-dark">Se ha eliminado correctamente el almacen.</p>
 
         <?php } else if ($no_existia) { ?>
 
-            <h1 class="1.75rem text-center text-dark">Eliminación imposible</h1>
+            <h1 class="1.75rem text-center text-primary">ELIMINACIÓN IMPOSIBLE</h1>
             <p class="1.25rem text-center text-dark">No existe el almacen que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
 
         <?php } else { ?>
 
-            <h1 class="1.75rem text-center text-dark">Error en la eliminación</h1>
+            <h1 class="1.75rem text-center text-primary">ERROR EN LA ELIMINACIÓN</h1>
             <p class="1.25rem text-center text-dark">No se ha podido eliminar el almacen o el almacen no existía.</p>
 
         <?php } ?>

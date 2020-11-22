@@ -33,9 +33,9 @@ if ($nuevoAlmacen) {
 <body class="p-5">
    <div class="container h-100 text-center">
         <?php if ($nuevoAlmacen) { ?>
-            <h1 class="1.75rem text-center text-primary">Nueva ficha del almacen</h1>
+            <h1 class="1.75rem text-center text-primary">NUEVA FICHA DEL ALMACEN</h1>
         <?php } else { ?>
-            <h1 class="1.75rem text-center text-primary">Ficha del almacen</h1>
+            <h1 class="1.75rem text-center text-primary">FICHA DEL ALMACEN</h1>
         <?php } ?>
         <div class="abs-center">
             <form class="border p-3 form" action="almacen-guardar.php" method="post">

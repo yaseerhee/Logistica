@@ -41,10 +41,10 @@
         <?php     if ($correcto || $datos_no_modificados) { ?>
 
             <?php if ($id == -1) { ?>
-                <h1 class="1.75rem text-center text-primary">Inserción completada</h1>
+                <h1 class="1.75rem text-center text-primary">INSERCIÓN COMPLETADA</h1>
                 <p class="1.25rem text-center text-dark">Se ha insertado correctamente:  <?php echo $nombre; ?>.</p>
             <?php } else { ?>
-                <h1 class="1.75rem text-center text-primary">Guardado completado</h1>
+                <h1 class="1.75rem text-center text-primary">GUARDADO COMPLETADO</h1>
                 <p class="1.25rem text-center text-dark">Se han guardado correctamente los datos de <?php echo $nombre; ?>.</p>
 
                 <?php if ($datos_no_modificados) { ?>
@@ -54,7 +54,7 @@
             <?php } ?>
 
         <?php } else { ?>
-            <h1 class="1.75rem text-center text-primary">Error en la modificación.</h1>
+            <h1 class="1.75rem text-center text-primary">ERROR EN LA MODIFICACIÓN.</h1>
             <p class="1.25rem text-center text-dark">No se han podido guardar los datos del almacen.</p>
         <?php  }  ?>
         <button type="submit" class="btn btn-outline-primary">

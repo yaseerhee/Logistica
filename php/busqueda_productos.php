@@ -1,6 +1,13 @@
 <?php
 
 require_once "__varios.php";
+$busqueda = strtolower($_REQUEST['busqueda']);
+
+if(empty($busqueda)){
+        header("location: productos-lista.php");
+    }
+
+$pdo = obtenerPdoConexionBD();
 $sql = "
            SELECT
                 p.id     AS p_id,
@@ -13,9 +20,14 @@ $sql = "
             FROM 
                productos AS p INNER JOIN almacen AS a
                ON p.almacen_id = a.id
+            WHERE 
+                p.id LIKE '%" . $busqueda . "%' ||
+                p.nombre LIKE '%" . $busqueda . "%' ||
+                a.nombre LIKE '%" . $busqueda . "%' ||
+                a.lugar  LIKE '%" . $busqueda . "%' 
             ORDER BY p.id
     ";
-$pdo = obtenerPdoConexionBD();
+
 $select = $pdo->prepare($sql);
 $select->execute([]);
 $productos = $select->fetchAll();
@@ -36,7 +48,7 @@ $productos = $select->fetchAll();
         <p></p>
         <form class="form-inline" action="busqueda_productos.php" method="get">
             <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search">
+            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar Producto" aria-label="search">
             <input type="submit"  value="Buscar" class="btn btn-info">  
         </form>
         <p></p>
@@ -101,16 +113,11 @@ $productos = $select->fetchAll();
                     <a href="almacen-lista.php">Listado de Almacenes</a>      
                 </button>
             </div>
-            <div class="col-lg-4">
-                <button type="submit" class="btn btn-outline-primary">
-                    <a href="productos-escasos.php">Productos escasos</a>      
-                </button>
-            </div>
         </div>
         <br />
 
             <div class="container">
-                <h5><img src="img/tic.png"> -->  BIEN ABASTECIDO</h5>
+                <h5><img src="img/tic.jpg"> -->  BIEN ABASTECIDO</h5>
                 <h5><img src="img/exclamacion.png"> -->  ESCASEZ DE PRODUCTO</h5>
             </div>
     </div>
