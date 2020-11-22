@@ -16,7 +16,6 @@ $rs = $select->fetchAll();
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
@@ -52,7 +51,7 @@ $rs = $select->fetchAll();
         <div class="row justify-content-center h-100">
             <div class="col-lg-4">
                 <button type="submit" class="btn btn-outline-primary">
-                    <a href="almacen-ficha.php?id=-1">Introducir nuevo almacen</a>
+                    <a href="almacen-ficha.php?id=-1">Añadir nuevo almacen</a>
                 </button>
             </div>
             <div class="col-lg-4">

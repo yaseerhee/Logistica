@@ -16,7 +16,7 @@ if ($nuevoProducto) {
     $parametros = [$productoCodigo, $productoNombre, $productoEstado, $producto_idc];
 } else {
     $sql = "UPDATE productos SET id=?, nombre=?, estado=?, almacen_id=? WHERE id=?";
-    $parametros = [$productoCodigo, $productoNombre, $productoEstado?1:0, $producto_idc, $id];
+    $parametros = [$productoCodigo, $productoNombre, $productoEstado ? 1 : 0, $producto_idc, $id];
 }
 
 $sentencia = $pdo->prepare($sql);
@@ -35,7 +35,6 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 

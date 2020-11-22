@@ -25,7 +25,8 @@ if (isset($_SESSION['user_id'])) {
 
 <head>
 	<title>Bienvenido al Sistema de Logística</title>
-	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
@@ -39,10 +40,12 @@ if (isset($_SESSION['user_id'])) {
 		<a href="logout.php"></a>
 	<?php } else { ?>
 		<h1>Porfavor Inicia Sesión o Regístrese</h1>
-
-		<a href="login.php">Iniciar sesión</a>
-		<a href="signup.php">Regístrarse</a>
-
+		<button type="submit" class="btn btn-outline-primary">
+			<a href="login.php">Iniciar sesión</a>
+		</button>
+		<button type="submit" class="btn btn-outline-primary">
+			<a href="signup.php">Regístrarse</a>
+		</button>
 	<?php } ?>
 </body>
 

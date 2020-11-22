@@ -4,9 +4,9 @@ require_once "__varios.php";
 
 $busqueda = strtolower($_REQUEST['busqueda']);
 
-if(empty($busqueda)){
-        header("location: almacen-lista.php");
-    }
+if (empty($busqueda)) {
+    header("location: almacen-lista.php");
+}
 
 $pdo = obtenerPdoConexionBD();
 $sql = "SELECT id,nombre,lugar FROM almacen WHERE nombre LIKE '%" . $busqueda . "%' || lugar LIKE '%" . $busqueda . "%' ORDER BY id";
@@ -21,7 +21,6 @@ $rs = $select->fetchAll();
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
@@ -31,8 +30,8 @@ $rs = $select->fetchAll();
         <p></p>
         <form class="form-inline" action="buscar_almacen.php" method="get">
             <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search" value="<?= $busqueda;?>">
-            <input type="submit"  value="Buscar" class="btn btn-info">  
+            <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search" value="<?= $busqueda; ?>">
+            <input type="submit" value="Buscar" class="btn btn-info">
         </form>
         <p></p>
         <table class="table table-hover table-dark">
@@ -42,7 +41,7 @@ $rs = $select->fetchAll();
                 <th>ELIMINAR</th>
             </tr>
 
-        <?php foreach ($rs as $fila) { ?>
+            <?php foreach ($rs as $fila) { ?>
                 <tr>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["nombre"] ?></a></td>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["lugar"] ?></a></td>
