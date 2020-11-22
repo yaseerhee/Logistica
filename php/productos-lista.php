@@ -1,5 +1,7 @@
 <?php
 require_once "__varios.php";
+session_start();
+//IMPRIME LA TABLA DE ALMACEN
 $sql = "
            SELECT
                 p.id     AS p_id,
@@ -29,18 +31,17 @@ $productos = $select->fetchAll();
 </head>
 
 <body class="p-5">
-
     <div class="container h-100 text-center">
         <h1 class="1.75rem text-center text-primary">LISTADO DE PRODUCTOS</h1>
-
         <p></p>
+        <!-- BUSCADOR DE PRODUCTOS -->
         <form class="form-inline" action="busqueda_productos.php" method="get">
             <i class="fas fa-search" aria-hidden="true"></i>
             <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar" aria-label="search">
             <input type="submit" value="Buscar" class="btn btn-info">
         </form>
         <p></p>
-
+        <!-- TABLA DEL ALMACEN -->
         <table class="table table-hover table-dark">
             <tr>
                 <th>Codigo Producto</th>
@@ -50,7 +51,7 @@ $productos = $select->fetchAll();
                 <th>Eliminar</th>
                 <th>Estado</th>
             </tr>
-
+            <!-- BUCLE IMPRIME FILA X FILA -->
             <?php foreach ($productos as $filaUnica) { ?>
                 <tr>
                     <td>
@@ -92,11 +93,13 @@ $productos = $select->fetchAll();
 
         <div class="row justify-content-center h-100">
             <div class="col-lg-4">
+                <!-- AÑADE NUEVO PRODUCTO -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="productos-ficha.php?id=-1">Añadir un producto</a>
                 </button>
             </div>
             <div class="col-lg-4">
+                <!-- LISTADO DE ALMACENES -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="almacen-lista.php">Listado de Almacenes</a>
                 </button>
@@ -107,13 +110,14 @@ $productos = $select->fetchAll();
                 </button>
             </div>
             <div class="p-5 Scol-lg-4">
+                <!-- BOTÓN PARA CERRAR SESIÓN -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="logout.php">Cerrar Sesión</a>
                 </button>
             </div>
         </div>
         <br />
-
+        <!-- GUÍA DEL ESTADO -->
         <div class="container">
             <h5><img src="img/tic.png" width="30px" height="30px"> --> BIEN ABASTECIDO</h5>
             <h5><img src="img/exclamacion.png" width="30px" height="30px"> --> ESCASEZ DE PRODUCTO</h5>

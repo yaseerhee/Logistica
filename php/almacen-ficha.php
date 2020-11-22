@@ -4,23 +4,24 @@ require_once "__varios.php";
 $pdo = obtenerPdoConexionBD();
 $id = (int)$_REQUEST["id"];
 $nuevoAlmacen = ($id == -1);
-
+// SI ES NUEVO LAS VARIABLES ESTÁN VACÍAS
 if ($nuevoAlmacen) {
     $nombre = "";
     $lugar = "";
 } else {
+    // SI NO ES NUEVO SELECCIONAMOS LOS DATOS DE LA FILA DE ESE ID
     $sql = "SELECT nombre, lugar FROM almacen WHERE id=?";
 
     $select = $pdo->prepare($sql);
     $select->execute([$id]);
     $rs = $select->fetchAll();
-
+    // COGEMOS LE NOMBRE Y EL LUGAR DE ESA FILA Y LO MOSTRAMOS EN LA FICHA
     $nombre = $rs[0]["nombre"];
     $lugar = $rs[0]["lugar"];
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -40,20 +41,25 @@ if ($nuevoAlmacen) {
             <form class="border p-3 form" action="almacen-guardar.php" method="post">
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <div class="form-group">
+                    <!-- SI LAS VARIABLES ESTÁN VACÍAS EL INPUT APARECE VACÍO SI ESTÁN LLENAS NOS MUESTRA EL VALOR DE DICHA -->
                     <input class="form-control" type="text" name="nombre" value="<?= $nombre ?>" placeholder="NOMBRE ALMACEN">
                 </div>
                 <div class="form-group">
+                    <!-- SI LAS VARIABLES ESTÁN VACÍAS EL INPUT APARECE VACÍO SI ESTÁN LLENAS NOS MUESTRA EL VALOR DE DICHA -->
                     <input class="form-control" type="text" name="lugar" value="<?= $lugar ?>" placeholder="LUGAR ALMACEN">
                 </div>
                 <div class="row justify-content-center h-100">
                     <div class="col-lg-4">
                         <?php if ($nuevoAlmacen) { ?>
+                            <!-- si es nuevo imprime este botón -->
                             <input class="btn btn-outline-primary" type="submit" name="anhadir" value="Añadir nuevo almacen">
                         <?php } else { ?>
+                            <!-- si no es nuevo imprime este botón -->
                             <input class="btn btn-outline-primary" type="submit" name="guardar" value="Guardar cambios">
                         <?php } ?>
                     </div>
                     <div class="col-lg-4">
+                        <!-- BOTON REDIRIGE AL LISTADO DEL ALMACEN -->
                         <button type="submit" class="btn btn-outline-primary">
                             <a href="almacen-lista.php">Lista del almacen</a>
                         </button>

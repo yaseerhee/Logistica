@@ -1,7 +1,7 @@
 <?php
 require_once "__varios.php";
 $pdo = obtenerPdoConexionBD();
-
+//RECOGE LOS DATOS DE LA FICHA
 $id = (int)$_REQUEST["id"];
 $productoCodigo = $_REQUEST["codigo"];
 $productoNombre = $_REQUEST["productoNombre"];
@@ -10,11 +10,12 @@ $producto_idc = $_REQUEST["almacen_id"];
 
 
 $nuevoProducto = ($id == -1);
-
+// SI ES NUEVO LOS INSERTA EN LA TABLA
 if ($nuevoProducto) {
     $sql = "INSERT INTO productos (id,nombre, estado,almacen_id) VALUES (?,?,?,?)";
     $parametros = [$productoCodigo, $productoNombre, $productoEstado, $producto_idc];
 } else {
+    //SI NO SON NUEVOS LOS MODIFICA EN LA TABLA
     $sql = "UPDATE productos SET id=?, nombre=?, estado=?, almacen_id=? WHERE id=?";
     $parametros = [$productoCodigo, $productoNombre, $productoEstado ? 1 : 0, $producto_idc, $id];
 }
@@ -43,15 +44,17 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
     <div class="container h-100 text-center">
         <?php
         if ($correcto || $datos_no_modificados) { ?>
-
             <?php if ($id == -1) { ?>
+                <!-- SI TODO SALE BIEN O NO HAY MODIFICACIONES  -->
                 <h1 class="1.75rem text-center text-primary">PRODUCTO AÑADIDO</h1>
                 <p class="1.25rem text-center text-dark">Se ha insertado correctamente la nueva entrada de <?php echo $productoNombre; ?>.</p>
             <?php } else { ?>
+                <!-- CASO CONTRARIO LO GUARDA Y MODIFICA -->
                 <h1 class="1.75rem text-center text-primary">MODIFICACIÓN EXITOSA</h1>
                 <p class="1.25rem text-center text-dark">Se han guardado correctamente los datos de <?php echo $productoNombre; ?>.</p>
 
                 <?php if ($datos_no_modificados) { ?>
+                    <!-- MODIFICACIONES 0 -->
                     <p class="1.25rem text-center text-dark">En realidad, no había modificado nada, pero no está de más que se haya asegurado pulsando el botón de
                         guardar :)</p>
                 <?php } ?>
@@ -61,13 +64,11 @@ $datos_no_modificados = ($sql_con_exito && $ninguna_fila_afectada);
         <?php
         } else {
         ?>
-
+            <!--  EN CASO DE QUE CORRECTO SEA FALSE Y DATOSNOMODIFCADOS SEA FALSE -->
             <h1 class="1.75rem text-center text-primary">ERROR AL MODIFICAR.</h1>
             <p class="1.25rem text-center text-dark">No se han podido guardar los datos de los productos.</p>
-
-        <?php
-        }
-        ?>
+        <?php } ?>
+        <!-- BOTÓN PARA VOLVER AL LISTADO DE ALMACENES -->
         <button type="submit" class="btn btn-outline-primary">
             <a href="productos-lista.php">Volver al listado de productos.</a>
         </button>

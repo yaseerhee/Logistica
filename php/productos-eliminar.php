@@ -1,8 +1,8 @@
 <?php
 require_once "__varios.php";
 
+// ELIMINAR LA FILA DE LA BASE DE DATOS
 $pdo = obtenerPdoConexionBD();
-
 $id = (int)$_REQUEST["id"];
 $sql = "DELETE FROM productos WHERE id=?";
 
@@ -26,21 +26,22 @@ $no_existia = ($sql_con_exito && $ninguna_fila_afectada);
 <body class="p-5">
 	<div class="container h-100 text-center">
 		<?php if ($correcto) { ?>
-
+			<!-- CORRECTO == TRUE {SI ES POSIBLE ELIMINAR IMPRIME ESTO} -->
 			<h1 class="1.75rem text-center text-primary">PRODUCTO ELIMINADO</h1>
 			<p class="1.25rem text-center text-dark">Se ha eliminado correctamente el producto.</p>
 
 		<?php } else if ($no_existia) { ?>
-
+			<!-- NO_EXISTIA == TRUE {SI NO ES POSIBLE ELIMINAR PERO SE EJECUAT CON EXITO  IMPRIME ESTO} -->
 			<h1 class="1.75rem text-center text-primary">IMPOSIBLE ELIMINAR</h1>
 			<p class="1.25rem text-center text-dark">No existe el producto que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
 
 		<?php } else { ?>
-
+			<!--  CORRECTO == FALSE {SI NO ES POSIBLE ELIMINAR Y NO SE EJECUAT CON EXITO  IMPRIME ESTO} -->
 			<h1 class="1.75rem text-center text-primary">ERROR AL ELIMINAR</h1>
 			<p class="1.25rem text-center text-dark">No se ha podido eliminar el producto o el producto no existía.</p>
 
 		<?php } ?>
+		<!-- BOTON PARA VOLVER AL LISTADO DE PRODCUTOS -->
 		<button type="submit" class="btn btn-outline-primary">
 			<a href="productos-lista.php">Volver al listado de productos.</a>
 		</button>

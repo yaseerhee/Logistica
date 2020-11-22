@@ -1,8 +1,9 @@
 <?php
 
 require_once "__varios.php";
-
 $pdo = obtenerPdoConexionBD();
+
+//FILTRAMOS LA TABLA SI NOS QUEDAMOS CON LOS PRODUCTOS QUE SU ESTADO VALE 0 QUE EQUIVALE A ESCASEZ
 $sql = "
            SELECT
                 p.id     AS p_id,
@@ -32,7 +33,7 @@ $productos = $select->fetchAll();
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body class="p-5">
-
+    <!-- TABLA DE PRODUCTOS QUE ESCASEAN (EXCLAMACIÓN) -->
 	<div class="container h-100 text-center">
         <h1 class="1.75rem text-center text-primary">PRODUCTOS QUE ESTÁN ESCASEANDO</h1>
         <table class="table table-hover table-dark">
@@ -44,7 +45,7 @@ $productos = $select->fetchAll();
                 <th>Eliminar</th>
                 <th>Estado</th>
             </tr>
-
+            <!-- IMPRIME TODAS LAS FILAS QUE CUMPLEN ESTÁ CONDICIÓN -->
             <?php foreach ($productos as $filaUnica) { ?>
                 <tr>
                 	<td>
@@ -64,7 +65,7 @@ $productos = $select->fetchAll();
                     		<img src="img/equis.png" width="30px" height="30px"> 
                     	</a>
                     </td>
-
+                    <!-- SI EL ESTADO DEL PRODUTO ES 1 APARECE EL ICONO DEL TIC, AQUÍ NO APARECE PORQUE SOLO APARECEN LOS QUE HAN ESCASEADO -->
                     <?php if ($filaUnica["p_estado"] == 1) { ?>
 	                    <td>
 	                    	<a href="productos-EstablecerEscasez.php?id=<?= $filaUnica["p_id"] ?>">
@@ -72,7 +73,8 @@ $productos = $select->fetchAll();
 	                    	</a>
 	                    </td>
                     <?php } else { ?>
-	                    <td>
+                    <!-- SI EL ESTADO DEL PRODUTO ES 0 APARECE EL ICONO DE LA EXCLAMACION -->
+                        <td>
 	                    	<a href="productos-EstablecerEscasez.php?id=<?= $filaUnica["p_id"] ?>">
 	                    		<img src="img/exclamacion.png" width="30px" height="30px">
 	                    	</a>
@@ -86,16 +88,19 @@ $productos = $select->fetchAll();
 
         <div class="row justify-content-center h-100">
             <div class="col-lg-4">
+            <!-- BOTON AÑADIR PRODUCTO -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="productos-ficha.php?id=-1">Añadir un producto</a>
                 </button>
             </div>
             <div class="col-lg-4">
+            <!-- BOTÓN LISTADO DE ALMACENES -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="almacen-lista.php">Listado de Almacenes</a>      
                 </button>
             </div>
             <div class="col-lg-4">
+            <!-- BOTÓN CERRAR SESIÓN -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="logout.php">Cerrar Sesión</a>
                 </button>

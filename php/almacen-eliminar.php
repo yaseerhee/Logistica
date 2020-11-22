@@ -1,47 +1,50 @@
 <?php
-	require_once "__varios.php";
-	
-	$pdo = obtenerPdoConexionBD();
-	$id = (int) $_REQUEST["id"]; 
-	$sql = "DELETE FROM almacen WHERE id=?";
+require_once "__varios.php";
+// ELIMINAR LA FILA DE LA BASE DE DATOS
+$pdo = obtenerPdoConexionBD();
+$id = (int) $_REQUEST["id"];
+$sql = "DELETE FROM almacen WHERE id=?";
 
-	$sentencia = $pdo->prepare($sql);
-	$sql_con_exito = $sentencia->execute([$id]);
+$sentencia = $pdo->prepare($sql);
+$sql_con_exito = $sentencia->execute([$id]);
 
-	$una_fila_afectada = ($sentencia->rowCount() == 1);
-	$ninguna_fila_afectada = ($sentencia->rowCount() == 0);
+$una_fila_afectada = ($sentencia->rowCount() == 1);
+$ninguna_fila_afectada = ($sentencia->rowCount() == 0);
 
-	$correcto = ($sql_con_exito && $una_fila_afectada);
-	$no_existia = ($sql_con_exito && $ninguna_fila_afectada);
+$correcto = ($sql_con_exito && $una_fila_afectada);
+$no_existia = ($sql_con_exito && $ninguna_fila_afectada);
 
 ?>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body class="p-5">
 	<div class="container h-100 text-center">
-        <?php if ($correcto) { ?>
+		<?php if ($correcto) { ?>
+			<!-- CORRECTO == TRUE {SI ES POSIBLE ELIMINAR IMPRIME ESTO} -->
+			<h1 class="1.75rem text-center text-primary">ELIMINACIÓN COMPLETADA</h1>
+			<p class="1.25rem text-center text-dark">Se ha eliminado correctamente el almacen.</p>
 
-            <h1 class="1.75rem text-center text-primary">ELIMINACIÓN COMPLETADA</h1>
-            <p class="1.25rem text-center text-dark">Se ha eliminado correctamente el almacen.</p>
+		<?php } else if ($no_existia) { ?>
+			<!-- NO_EXISTIA == TRUE {SI NO ES POSIBLE ELIMINAR PERO SE EJECUAT CON EXITO  IMPRIME ESTO} -->
+			<h1 class="1.75rem text-center text-primary">ELIMINACIÓN IMPOSIBLE</h1>
+			<p class="1.25rem text-center text-dark">No existe el almacen que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
 
-        <?php } else if ($no_existia) { ?>
+		<?php } else { ?>
+			<!--  CORRECTO == FALSE {SI NO ES POSIBLE ELIMINAR Y NO SE EJECUAT CON EXITO  IMPRIME ESTO} -->
+			<h1 class="1.75rem text-center text-primary">ERROR EN LA ELIMINACIÓN</h1>
+			<p class="1.25rem text-center text-dark">No se ha podido eliminar el almacen o el almacen no existía.</p>
 
-            <h1 class="1.75rem text-center text-primary">ELIMINACIÓN IMPOSIBLE</h1>
-            <p class="1.25rem text-center text-dark">No existe el almacen que se pretende eliminar (¿ha manipulado Vd. el parámetro id?).</p>
-
-        <?php } else { ?>
-
-            <h1 class="1.75rem text-center text-primary">ERROR EN LA ELIMINACIÓN</h1>
-            <p class="1.25rem text-center text-dark">No se ha podido eliminar el almacen o el almacen no existía.</p>
-
-        <?php } ?>
-        <button type="submit" class="btn btn-outline-primary">
-        	<a href="almacen-lista.php">Volver al listado de almacenes.</a>
-        </button>
-    </div>
+		<?php } ?>
+		<!-- VOLVER AL PHP DEL LISTADO -->
+		<button type="submit" class="btn btn-outline-primary">
+			<a href="almacen-lista.php">Volver al listado de almacenes.</a>
+		</button>
+	</div>
 </body>
 
 </html>

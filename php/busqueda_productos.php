@@ -105,16 +105,19 @@ $productos = $select->fetchAll();
 
         <div class="row justify-content-center h-100">
             <div class="col-lg-4">
+                <!-- BOTON AÑADIR PRODUCTO -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="productos-ficha.php?id=-1">Añadir un producto</a>
                 </button>
             </div>
             <div class="col-lg-4">
+                <!-- BOTON GESTIONAR LISTADO DE PRODUCTOS -->
                 <button type="submit" class="btn btn-outline-primary">
-                    <a href="almacen-lista.php">Listado de Almacenes</a>
+                    <a href="almacen-lista.php">Gestionar listado de Almacenes</a>
                 </button>
             </div>
             <div class="col-lg-4">
+                <!-- BOTON CERRAR SESIONES -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="logout.php">Cerrar Sesión</a>
                 </button>

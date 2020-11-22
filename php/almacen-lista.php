@@ -2,7 +2,7 @@
 
 require_once "__varios.php";
 session_start();
-
+//IMPRIME LA TABLA DE ALMACEN
 $pdo = obtenerPdoConexionBD();
 $sql = "SELECT id,nombre,lugar FROM almacen ORDER BY id";
 
@@ -24,19 +24,22 @@ $rs = $select->fetchAll();
         <h1 class="1.75rem text-center text-primary" id="listado">LISTADO DE ALMACENES</h1>
         <h1 class="1.75rem text-center text-primary" id="listado"><?php echo $_SESSION["user_id"] ?></h1>
         <p></p>
+        <!-- BUSCADOR DE ALMACEN -->
         <form class="form-inline" action="buscar_almacen.php" method="get">
             <i class="fas fa-search" aria-hidden="true"></i>
             <input class="form-control form-control-sm ml-3 w-75" type="text" name="busqueda" id="busqueda" placeholder="Buscar Almacen" aria-label="search">
             <input type="submit" value="Buscar" class="btn btn-info">
         </form>
         <p></p>
+
+        <!-- TABLA DEL ALMACEN -->
         <table class="table table-hover table-dark">
             <tr>
                 <th>NOMBRE</th>
                 <th>LUGAR</th>
                 <th>ELIMINAR</th>
             </tr>
-
+            <!-- BUCLE IMPRIME FILA X FILA -->
             <?php foreach ($rs as $fila) { ?>
                 <tr>
                     <td><a href="almacen-ficha.php?id=<?= $fila["id"] ?>"> <?= $fila["nombre"] ?></a></td>
@@ -50,16 +53,19 @@ $rs = $select->fetchAll();
         <br />
         <div class="row justify-content-center h-100">
             <div class="col-lg-4">
+                <!-- AÑADE NUEVO ALMACEN -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="almacen-ficha.php?id=-1">Añadir nuevo almacen</a>
                 </button>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4">Ç
+                <!-- LISTADO DE PRODUCTOS -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="productos-lista.php">Gestionar listado de productos</a>
                 </button>
             </div>
             <div class="col-lg-4">
+                <!-- BOTÓN PARA CERRAR SESIÓN -->
                 <button type="submit" class="btn btn-outline-primary">
                     <a href="logout.php">Cerrar Sesión</a>
                 </button>

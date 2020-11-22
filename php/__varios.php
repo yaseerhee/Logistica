@@ -1,4 +1,8 @@
+
 <?php
+//*
+//CONEXIÓN A LA BASE DE DATOS logistica
+
 function obtenerPdoConexionBD(): PDO
 {
     $servidor = "localhost";
@@ -21,8 +25,7 @@ function obtenerPdoConexionBD(): PDO
     return $pdo;
 }
 
-// (Esta función no se utiliza en este proyecto pero se deja por si se optimizase el flujo de navegación.)
-// Esta función redirige a otra página y deja de ejecutar el PHP que la llamó:
+// REDIRECCIONAR AL ARCHIVO QUE LE PONGAMOS
 function redireccionar(string $url)
 {
     header("Location: $url");
