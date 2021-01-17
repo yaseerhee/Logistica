@@ -1,24 +1,17 @@
-"#Proyecto-logistica"
-DALE A EDITAR PARA QUE TE APAREZCA EL README ESTRUCTURADO
+#LOGÍSTICA 
+**MOHAMED YASER HADDAD EDDAHMANE** 
+** DAW 2 - SERVIDOR **
 
-MOHAMED YASER HADDAD EDDAHMANE
-DAW 2 - SERVIDOR
+##TECNOLOGÍAS USADAS :computer: 
+- La aplicación ha sido creada en *HTML5*.
+- Para el funcionamiento he usado *PHP*.
+- Para el almacenamiento de datos he usado *MySQL*.
+- Para el diseño de la App he usao *CSS3* y *Bootstrap*.
 
-<-----------------USUARIOS CREADOS: -------------------------------->
-id email usuario password
-1 user@user.com user user
-2 admin@admin.com admin admin
-3 yaser@yaser.com yaser yaser
-4 alain@alain.com alain alain
-
-<---------------TECNOLOGÍAS USADAS ---------------------------------->
-HTML5 PHP  
- CSS3 MYSQL
-BOOTSTRAP SQL
-GIT
-
-<----------------INTRODUCCIÓN---------------------------------------->
-Se trata de un proyecto de logística donde mi objetivo controlar los productos y los almacenes en los que se encunetran estos. Para ello, podemos dividir el proyecto en tres partes:
+##DESCRIPCIÓN
+Se trata de un proyecto de logística donde mi objetivo es:
+#### *"Controlar los productos y los almacenes en los que se encuentran estos"*.
+Para ello, podemos dividir el proyecto en tres partes:
 
     -La primera parte se trata del ALMACEN que está dividido en 5 php´s: (T_ALMACEN)
         - almacen-eliminar: Su función es que cada vez que el usuario pinche en la X del listado de almacenes,
@@ -47,3 +40,11 @@ Se trata de un proyecto de logística donde mi objetivo controlar los productos 
         - log out: es un botón que nos ayuda a cerrar la sesión que hayamos iniciado.
 
     Todo esto está conectado al archivo __varios.php que es el que realiza la conexión a la base de datos logistica.sql que se encunetra en la carpeta sql . También tenemos dos carpetas que son css ( que genera los estilos.css) e img/ (donde almacenamos las imagenes que hemos usado en el proyecto).
+    
+##USUARIOS CREADOS  
+id email usuario password
+1 user@user.com user user
+2 admin@admin.com admin admin
+3 yaser@yaser.com yaser yaser
+4 alain@alain.com alain alain
+
