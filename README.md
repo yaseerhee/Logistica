@@ -41,3 +41,4 @@ Para ello, podemos dividir el proyecto en tres partes:
 Todo esto está conectado al archivo *"__varios.php"* que es el que realiza la conexión a la base de datos **"logistica.sql"** que se encunetra en la carpeta sql . 
 También tenemos dos carpetas que son *css/* ( que genera los *"estilos.css"*) e *img/* (donde almacenamos las imagenes que hemos usado en el proyecto).
 
+### Nivel: medio :orange_book:
